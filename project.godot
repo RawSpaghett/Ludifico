@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+InputManager="*uid://bgp48xi6h7mwi"
+
 [display]
 
 window/stretch/mode="canvas_items"
