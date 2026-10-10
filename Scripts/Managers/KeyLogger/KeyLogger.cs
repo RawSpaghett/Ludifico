@@ -9,6 +9,7 @@ public partial class KeyLogger : Node
 	// subscribe
 	public override void _EnterTree()
 	{
+		GD.Print("Entered Tree!!!!");
 		EventBus.OnPlayerLetter += HandlePlayerletter;
 	}
 

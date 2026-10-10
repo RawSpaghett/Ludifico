@@ -5,7 +5,7 @@ public static partial class EventBus
 {
 	//events
 	// public static event Action<char> OnPlayerLetter;
-	public static event Action<string, ulong> OnWordFinished;
+	public static event Action<ulong, string> OnWordFinished;
 
 	//methods
 	/*
@@ -15,9 +15,9 @@ public static partial class EventBus
 	}
 	*/
 
-	public static void BroadcastFinishedWord(string word, ulong timestamp)
+	public static void BroadcastFinishedWord(ulong timestamp, string word)
 	{
-		OnWordFinished?.Invoke(word, timestamp);
+		OnWordFinished?.Invoke(timestamp, word);
 	}
 	
 	 
