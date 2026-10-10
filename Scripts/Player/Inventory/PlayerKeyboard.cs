@@ -3,7 +3,9 @@ using System;
 
 public partial class PlayerKeyboard: Resource
 {
-	private int keyboardSize = 26;
+	
+	public static PlayerKeyboard Instance { get; } = new PlayerKeyboard();
+	
 	private int artisanSize = 4;
 
 	private char[] alphabet =
@@ -14,6 +16,14 @@ public partial class PlayerKeyboard: Resource
 	[Export] public Godot.Collections.Array<KeySlot> Slots { get; set; } 
 		= new Godot.Collections.Array<KeySlot>();
 	
+	[Export] public Godot.Collections.Array<Artisan> ArtisanArr { get; set; } 
+		= new Godot.Collections.Array<Artisan>();
+
+	public PlayerKeyboard()
+	{
+		IntiateFreshKeyboard();
+	}
+	
 	private void IntiateFreshKeyboard()
 	{
 		Slots.Clear();
@@ -21,14 +31,34 @@ public partial class PlayerKeyboard: Resource
 		{
 			Slots.Add(new KeySlot(new BaseSwitch(),new BaseCap(),letter));
 		}
+		
 	}
 
-	public KeySlot GetKey() //get keyslot values
+	public KeySlot GetKey(char letterID) //get keyslot values
 	{
+		foreach (KeySlot slot in Slots)
+		{
+			if (slot.Letter == letterID) 
+			{
+				return slot;
+			}
+		}
 		return null;
 	}
 
 	public void ReplaceKey() // replace a keyslots switch or cap
 	{
+	}
+
+	public void AddArtisan(Artisan newArtisan)
+	{
+		if (ArtisanArr.Count <= 5)
+		{
+			ArtisanArr.Add(newArtisan);
+		}
+		else
+		{
+			
+		}
 	}
 }
