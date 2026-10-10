@@ -1,29 +1,45 @@
 using Godot;
 using System;
 using System.Text;
+using System.Collections.Generic;
 
 public partial class KeyLogger : Node
 {
 	private StringBuilder _currentWord = new();
+	private List<string> _targetString = new();
+	private int _userCombo = 0;
 	
 	// subscribe
 	public override void _EnterTree()
 	{
-		GD.Print("Entered Tree!!!!");
 		EventBus.OnPlayerLetter += HandlePlayerletter;
+		EventBus.OnWordGenerated += AddToTarget;
 	}
 
 	private void HandlePlayerletter(char letter)
 	{
+		int count = 0;
+
+		if (count == 0) {
+			EventBus.BroadcastPlayerStart(Time.GetTicksMsec());
+		}
+
 		if (Char.IsWhiteSpace(letter))
 		{
-			GD.Print("Hello from handleplayerletter");
 			FinishWord();
 			return;
 		}
 
+		// if (/* compare to target */)
+		// 		increment combo
+
 		_currentWord.Append(letter);
-		GD.Print("Hello from handleplayerletter, appending letter to sb");
+		count++;
+	}
+
+	private void AddToTarget(string word)
+	{
+
 	}
 
 	// hypothetically runs @ whitespace
@@ -32,11 +48,9 @@ public partial class KeyLogger : Node
 		if(_currentWord.Length == 0) return;
 		
 		string word = _currentWord.ToString();
-		ulong time = Time.GetTicksMsec();
 
-		EventBus.BroadcastFinishedWord(time,word);
+		EventBus.BroadcastFinishedWord(Time.GetTicksMsec(),word);
 		
-		GD.Print($"Broadcasting finished word: {word}");
 		_currentWord.Clear();
 	}
 	
@@ -44,6 +58,7 @@ public partial class KeyLogger : Node
 	public override void _ExitTree()
 	{
 		EventBus.OnPlayerLetter -= HandlePlayerletter;
+		EventBus.OnWordGenerated -= AddToTarget;
 	}
 
 }

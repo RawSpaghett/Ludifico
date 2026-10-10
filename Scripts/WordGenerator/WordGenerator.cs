@@ -17,6 +17,7 @@ public sealed class WordGenerator : IWordGenerator
 	public String GenerateWord()
 	{
 		int idx = _rng.RandiRange(0, _words.Count - 1);
+		EventBus.BroadcastWordGenerated(_words[idx]);
 		return _words[idx];
 	}
 
@@ -25,7 +26,9 @@ public sealed class WordGenerator : IWordGenerator
 		List<String> ret = new List<string>();
 
 		for (int i = 0; i < count; i++) {
-			ret.Add(_words[_rng.RandiRange(0, _words.Count - 10) + 9]); // very minor salting
+			string word = _words[_rng.RandiRange(0, _words.Count - 10) + 9];
+			ret.Add(word); // very minor salting
+			EventBus.BroadcastWordGenerated(word);
 		}
 
 		return ret;
