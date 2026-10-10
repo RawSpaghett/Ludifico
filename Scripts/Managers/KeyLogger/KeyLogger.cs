@@ -5,10 +5,13 @@ using System.Collections.Generic;
 
 public partial class KeyLogger : Node
 {
-	private StringBuilder _currentWord = new();
+	private StringBuilder _currentUserWord = new(); 
 	private List<string> _targetStrings = new();
-	private int _userCombo = 0;
-	private int count = 0; // count of characters input from user
+	private int userCombo = 0;
+	private int count = 0; // global count of characters input from user
+	private int curWordLen = 0; // length of target string
+	private int curUserLetterIdx = 0;
+	private int targetWordIdx = 0;
 
 	
 	// subscribe
@@ -20,22 +23,27 @@ public partial class KeyLogger : Node
 
 	private void HandlePlayerletter(char letter)
 	{		
+		if (count == 0) EventBus.BroadcastPlayerStart(Time.GetTicksMsec());
+		if (curWordLen == 0) curWordLen = _targetStrings[targetWordIdx].Length;
 
-		if (count == 0) {
-			EventBus.BroadcastPlayerStart(Time.GetTicksMsec());
-		}
-
-		if (Char.IsWhiteSpace(letter))
+		// only allow user to finish word when all chars have been typed
+		if (Char.IsWhiteSpace(letter) && curUserLetterIdx == curWordLen)
 		{
 			FinishWord();
 			return;
 		}
 
-		if (true) {
-
+		// if letter matches 
+		if (letter == _targetStrings[targetWordIdx][curUserLetterIdx]) {
+			userCombo++;
+			_currentUserWord.Append(letter);
+		} else {
+			userCombo = 0;
+			EventBus.BroadcastPlayerMiss();
+			// broadcast failure
 		}
 
-		_currentWord.Append(letter);
+		
 		count++;
 	}
 
@@ -47,13 +55,13 @@ public partial class KeyLogger : Node
 	// hypothetically runs @ whitespace
 	private void FinishWord()
 	{
-		if(_currentWord.Length == 0) return;
+		if(_currentUserWord.Length == 0) return;
 		
-		string word = _currentWord.ToString();
+		string word = _currentUserWord.ToString();
 
-		EventBus.BroadcastFinishedWord(Time.GetTicksMsec(),word);
+		EventBus.BroadcastFinishedWord(Time.GetTicksMsec(),word, userCombo);
 		
-		_currentWord.Clear();
+		_currentUserWord.Clear();
 	}
 	
 	// unsubscribe @ scene end
