@@ -4,33 +4,40 @@ using System.Collections.Generic;
 
 public partial class TargetLabel : Label
 {
-	IWordGenerator wordGen = new WordGenerator();
-	List<String> words;
+	IWordGenerator _wordGen = new WordGenerator();
+	List<String> _words = new();
+	private const int visibleWordCount = 5;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		EventBus.OnWordFinished += UpdateTargetText;
-
 		this.HorizontalAlignment = HorizontalAlignment.Center;
 
 		// generate and render first n words
-		int n = 5;
-		List<String> words = wordGen.GenerateWords(n);
+		_words.AddRange(_wordGen.GenerateWords(visibleWordCount));
+		RefreshText();
 
-		for (int i = 0; i < n; i++) {
-			this.Text += words[i] + " ";
-		}
-
+		EventBus.OnWordFinished += UpdateTargetText;
 	}
 
 	private void UpdateTargetText(ulong _, string __) 
 	{
-		string newString = wordGen.GenerateWord(); 
-		this.Text.Remove(0 ,words[0].Length + 1);
-		this.Text += newString;
-		words.Add(newString);
-		words.RemoveAt(0);
+		if (_words.Count == 0)
+			return;
+
+		// Remove the first target word.
+		_words.RemoveAt(0);
+
+		// Append a new word at the end.
+		_words.Add(_wordGen.GenerateWord());
+ 
+		// Update the displayed text.
+		RefreshText();
+	}
+
+	private void RefreshText()
+	{
+		Text = string.Join(" ", _words);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

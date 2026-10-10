@@ -3,7 +3,6 @@ using System;
 
 public partial class InputManager : Node
 {
-	private string _typedText;
 
 	public override void _Ready()
 	{
@@ -31,10 +30,10 @@ public partial class InputManager : Node
 	private void HandleChar(char character)
 	{
 		// do some handling
-		_typedText += character;
+		// _typedText += character;
 
 		EventBus.BroadcastPlayerLetter(character);
-		GD.Print(character);	
+		// GD.Print(character);	
 	}
 	
 	private void HandleSpecials(Key key)
@@ -42,14 +41,13 @@ public partial class InputManager : Node
 		switch(key)
 		{
 			case Key.Backspace:
-				if (_typedText.Length > 0) 
-				{
-					_typedText = _typedText[..^1]; // range operator + ^1 = everything except last character
-				}
+				// do nothing
 				break;
 			case Key.Escape:
+				// bring up menu
 				break;
 			case Key.Tab:
+				// nothing for now, maybe nav
 				break;
 		}
 	}
