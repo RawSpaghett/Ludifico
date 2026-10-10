@@ -79,7 +79,8 @@ public partial class KeyLogger : Node
 		string word = _currentUserWord.ToString();
 		ulong timestamp = Time.GetTicksMsec();
 
-		EventBus.BroadcastFinishedWord(timestamp ,word, userCombo);
+		EventBus.BroadcastFinishedWord(timestamp ,word);
+		EventBus.BroadcastFinishedWordCombo(userCombo);
 		
 		_currentUserWord.Clear();
 		targetWordIdx++;

@@ -5,7 +5,8 @@ public static partial class EventBus
 {
 	//events
 	// public static event Action<char> OnPlayerLetter;
-	public static event Action<ulong, string, int> OnWordFinished;
+	public static event Action<ulong, string> OnWordFinished;
+	public static event Action<int> OnWordFinishedCombo;
 	public static event Action<ulong> OnPlayerStart;
 	public static event Action<string> OnWordGenerated;
 	public static event Action OnPlayerMiss;
@@ -18,9 +19,13 @@ public static partial class EventBus
 	}
 	*/
 
-	public static void BroadcastFinishedWord(ulong timestamp, string word, int combo)
+	public static void BroadcastFinishedWord(ulong timestamp, string word)
 	{
-		OnWordFinished?.Invoke(timestamp, word, combo);
+		OnWordFinished?.Invoke(timestamp, word);
+	}
+	public static void BroadcastFinishedWordCombo(int combo)
+	{
+		OnWordFinishedCombo?.Invoke(combo);
 	}
 
 	public static void BroadcastPlayerStart(ulong timestamp)
@@ -37,5 +42,5 @@ public static partial class EventBus
 	{
 		OnPlayerMiss?.Invoke();
 	}
-	 
+	
 }
