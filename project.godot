@@ -15,6 +15,10 @@ run/main_scene="res://Scripts/node_2d.tscn"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InputManager="*uid://bgp48xi6h7mwi"
+
 [display]
 
 window/stretch/mode="canvas_items"
