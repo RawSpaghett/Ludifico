@@ -1,5 +1,42 @@
 [gd_scene format=3 uid="uid://c6yf5fv3uaj7q"]
 
+[ext_resource type="Script" uid="uid://dgy75n1aca1up" path="res://Scripts/LabelAttached/TargetLabel.cs" id="1_lfx5v"]
+[ext_resource type="Script" uid="uid://bf7cxlm0iv51u" path="res://Scripts/LabelAttached/InputLabel.cs" id="2_5tedp"]
+
 [node name="WPMTest" type="Control" unique_id=2015650234]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=667343751]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=656620414]
+layout_mode = 2
+alignment = 1
+
+[node name="TargetLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=924420258]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_lfx5v")
+
+[node name="InputLabel" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2093012780]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_5tedp")

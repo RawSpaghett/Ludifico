@@ -3,6 +3,8 @@ using System;
 
 public partial class InputManager : Node
 {
+	private string _typedText;
+
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
@@ -29,6 +31,8 @@ public partial class InputManager : Node
 	private void HandleChar(char character)
 	{
 		// do some handling
+		_typedText += character;
+
 		// GD.Print(character);	
 	}
 	
@@ -37,6 +41,10 @@ public partial class InputManager : Node
 		switch(key)
 		{
 			case Key.Backspace:
+				if (_typedText.Length > 0) 
+				{
+					_typedText = _typedText[..^1]; // range operator + ^1 = everything except last character
+				}
 				break;
 			case Key.Escape:
 				break;

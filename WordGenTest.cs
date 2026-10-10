@@ -9,9 +9,6 @@ public partial class WordGenTest : Label
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var random = new RandomNumberGenerator();
-		random.Seed = 69;
-
 		List<String> words = wordGen.GenerateWords(100);
 		for(int i = 0; i < 10; i++) {
 			for (int j = 0; j < 10; j++) {
@@ -19,7 +16,6 @@ public partial class WordGenTest : Label
 			}
 			this.Text += '\n';
 		}
-		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
