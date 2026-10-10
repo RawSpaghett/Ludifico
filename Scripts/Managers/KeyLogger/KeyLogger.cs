@@ -34,7 +34,7 @@ public partial class KeyLogger : Node
 		string word = _currentWord.ToString();
 		ulong time = Time.GetTicksMsec();
 
-		EventBus.BroadcastFinishedWord(word, time);
+		EventBus.BroadcastFinishedWord(time,word);
 		
 		GD.Print($"Broadcasting finished word: {word}");
 		_currentWord.Clear();

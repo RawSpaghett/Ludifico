@@ -33,13 +33,13 @@ public partial class WPM : Node
 	}
 	*/
 
-	private void StartTime(Int64 timeStamp)
+	private void StartTime(ulong timeStamp)
 	{
 		float timeInSeconds = (float)timeStamp / 1000f;
 		startTimeMinutes = timeInSeconds / 60f;
 	}
 	
-	private void ProcessBroadcast(Int64 time, string word)
+	private void ProcessBroadcast(ulong time, string word)
 	{
 		float timeInSeconds = (float)time / 1000f;
 		float timeInMinutes = timeInSeconds / 60f;
