@@ -3,6 +3,7 @@ using System;
 
 public partial class InputManager : Node
 {
+	
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
@@ -28,7 +29,7 @@ public partial class InputManager : Node
 	
 	private void HandleChar(char character)
 	{
-		// do some handling
+		EventBus.BroadcastPlayerLetter(character);
 		// GD.Print(character);	
 	}
 	
