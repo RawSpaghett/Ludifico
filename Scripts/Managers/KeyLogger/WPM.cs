@@ -13,15 +13,15 @@ public partial class WPM : Node
 	
 	public override void _EnterTree()
 	{
-		EventBus.OnWordFinished += RawWPM;
-		EventBus.OnPlayerStart += StartTime;
+		EventBus.OnWordFinished += ProcessBroadcast;
+		//EventBus.OnPlayerStart += StartTime;
 		base._EnterTree();
 	}
 
 	public override void _ExitTree()
 	{
-		EventBus.OnWordFinished -= RawWPM;
-		EventBus.OnPlayerStart -= StartTime;
+		EventBus.OnWordFinished -= ProcessBroadcast;
+		//EventBus.OnPlayerStart -= StartTime;
 		base._ExitTree();
 	}
 
