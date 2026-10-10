@@ -9,8 +9,6 @@ public partial class KeyLogger : Node
 	private List<string> _targetStrings = new();
 	private int userCombo = 0;
 	private int count = 0; // global count of characters input from user
-	private int curWordLen = 0; // length of target string
-	private int curUserLetterIdx = 0;
 	private int targetWordIdx = 0;
 
 	
@@ -23,27 +21,49 @@ public partial class KeyLogger : Node
 
 	private void HandlePlayerletter(char letter)
 	{		
+		// make sure word exists
+		if (targetWordIdx >= _targetStrings.Count) return;
+
+		string target = _targetStrings[targetWordIdx];
+
+		// Player starts typing
 		if (count == 0) EventBus.BroadcastPlayerStart(Time.GetTicksMsec());
-		if (curWordLen == 0) curWordLen = _targetStrings[targetWordIdx].Length;
 
 		// only allow user to finish word when all chars have been typed
-		if (Char.IsWhiteSpace(letter) && curUserLetterIdx == curWordLen)
+		if (Char.IsWhiteSpace(letter))
 		{
-			FinishWord();
+			if(_currentUserWord.Length == target.Length)
+			{
+				FinishWord();	
+			} 
+			else if (_currentUserWord.Length > 0)
+			{
+				userCombo = 0;
+				EventBus.BroadcastPlayerMiss();
+			} 
+			return;	
+		}
+
+		if (_currentUserWord.Length >= target.Length) 
+		{
+			userCombo = 0;
+			EventBus.BroadcastPlayerMiss();
 			return;
 		}
 
-		// if letter matches 
-		if (letter == _targetStrings[targetWordIdx][curUserLetterIdx]) {
-			userCombo++;
+		char expected = target[_currentUserWord.Length];
+
+		if (letter == expected)
+		{
 			_currentUserWord.Append(letter);
-		} else {
+			userCombo++;
+		}
+		else 
+		{
 			userCombo = 0;
 			EventBus.BroadcastPlayerMiss();
-			// broadcast failure
 		}
 
-		
 		count++;
 	}
 
@@ -52,16 +72,17 @@ public partial class KeyLogger : Node
 		_targetStrings.Add(word);
 	}
 
-	// hypothetically runs @ whitespace
 	private void FinishWord()
 	{
 		if(_currentUserWord.Length == 0) return;
 		
 		string word = _currentUserWord.ToString();
+		ulong timestamp = Time.GetTicksMsec();
 
-		EventBus.BroadcastFinishedWord(Time.GetTicksMsec(),word, userCombo);
+		EventBus.BroadcastFinishedWord(timestamp ,word, userCombo);
 		
 		_currentUserWord.Clear();
+		targetWordIdx++;
 	}
 	
 	// unsubscribe @ scene end
@@ -70,5 +91,4 @@ public partial class KeyLogger : Node
 		EventBus.OnPlayerLetter -= HandlePlayerletter;
 		EventBus.OnWordGenerated -= AddToTarget;
 	}
-
 }
