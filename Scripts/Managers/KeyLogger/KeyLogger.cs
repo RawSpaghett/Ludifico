@@ -6,8 +6,10 @@ using System.Collections.Generic;
 public partial class KeyLogger : Node
 {
 	private StringBuilder _currentWord = new();
-	private List<string> _targetString = new();
+	private List<string> _targetStrings = new();
 	private int _userCombo = 0;
+	private int count = 0; // count of characters input from user
+
 	
 	// subscribe
 	public override void _EnterTree()
@@ -17,8 +19,7 @@ public partial class KeyLogger : Node
 	}
 
 	private void HandlePlayerletter(char letter)
-	{
-		int count = 0;
+	{		
 
 		if (count == 0) {
 			EventBus.BroadcastPlayerStart(Time.GetTicksMsec());
@@ -30,8 +31,9 @@ public partial class KeyLogger : Node
 			return;
 		}
 
-		// if (/* compare to target */)
-		// 		increment combo
+		if (true) {
+
+		}
 
 		_currentWord.Append(letter);
 		count++;
@@ -39,7 +41,7 @@ public partial class KeyLogger : Node
 
 	private void AddToTarget(string word)
 	{
-
+		_targetStrings.Add(word);
 	}
 
 	// hypothetically runs @ whitespace
