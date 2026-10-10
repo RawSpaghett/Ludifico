@@ -34,7 +34,7 @@ public partial class InputManager : Node
 		_typedText += character;
 
 		EventBus.BroadcastPlayerLetter(character);
-		// GD.Print(character);	
+		GD.Print(character);	
 	}
 	
 	private void HandleSpecials(Key key)
