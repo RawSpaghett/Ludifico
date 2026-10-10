@@ -33,6 +33,7 @@ public partial class InputManager : Node
 		// do some handling
 		_typedText += character;
 
+		EventBus.BroadcastPlayerLetter(character);
 		// GD.Print(character);	
 	}
 	
