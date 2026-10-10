@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://05ne35ijw1ku"]
+
+[ext_resource type="Texture2D" uid="uid://127snn6d4qd0" path="res://Assets/Sprites/A Key.png" id="1_t883x"]
+[ext_resource type="Texture2D" uid="uid://cd2b7ywk7sod3" path="res://icon.svg" id="2_3iern"]
+[ext_resource type="Script" uid="uid://cr52maxv4sfg4" path="res://Scenes/Elements/UI_KeyBase.cs" id="3_vqrn4"]
+
+[node name="KeyBase" type="TextureButton" unique_id=652133383]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.082
+anchor_bottom = 0.18200001
+offset_right = -16.464005
+offset_bottom = -19.936005
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_t883x")
+texture_pressed = ExtResource("2_3iern")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("3_vqrn4")

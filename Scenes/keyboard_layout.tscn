@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bo6bjwvk1mw56"]
+
+[ext_resource type="PackedScene" uid="uid://05ne35ijw1ku" path="res://Scenes/key_base.tscn" id="1_bu62x"]
+
+[node name="KeyboardLayout" type="VBoxContainer" unique_id=622241588]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 182.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Top" type="HBoxContainer" parent="." unique_id=2021103798]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="KeyBase" parent="Top" unique_id=652133383 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase2" parent="Top" unique_id=935314486 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase3" parent="Top" unique_id=1355453206 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase4" parent="Top" unique_id=1324022851 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase5" parent="Top" unique_id=1849646140 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase6" parent="Top" unique_id=1817213584 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase7" parent="Top" unique_id=1342093839 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase8" parent="Top" unique_id=693335360 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBase9" parent="Top" unique_id=1357806268 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="Middle" type="HBoxContainer" parent="." unique_id=227732869]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Tab" type="Control" parent="Middle" unique_id=177558095]
+visible = false
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+
+[node name="KeyBaseM" parent="Middle" unique_id=243997786 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseM2" parent="Middle" unique_id=1794656586 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseM3" parent="Middle" unique_id=84259606 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseM4" parent="Middle" unique_id=987005784 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseM5" parent="Middle" unique_id=1427699077 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseM6" parent="Middle" unique_id=902463667 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseM7" parent="Middle" unique_id=155383360 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseM8" parent="Middle" unique_id=1966632796 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="Bottom" type="HBoxContainer" parent="." unique_id=1506836017]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Tab2" type="Control" parent="Bottom" unique_id=780313423]
+visible = false
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="KeyBaseB" parent="Bottom" unique_id=2071428911 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseB2" parent="Bottom" unique_id=747017733 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseB3" parent="Bottom" unique_id=1286644547 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseB4" parent="Bottom" unique_id=992832511 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseB5" parent="Bottom" unique_id=808674088 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseB6" parent="Bottom" unique_id=49849446 instance=ExtResource("1_bu62x")]
+layout_mode = 2
