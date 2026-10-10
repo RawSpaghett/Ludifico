@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://crvn7c0ntg7fe"]
+
+[ext_resource type="Script" uid="uid://vgnlmafypy7l" path="res://Scripts/Managers/MainMenuManager.cs" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://cd2b7ywk7sod3" path="res://icon.svg" id="2_1ehe0"]
+
+[node name="MainMenu" type="MarginContainer" unique_id=1121741359]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+script = ExtResource("1_48xlc")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1166322399]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=612602409]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer" unique_id=1761645961]
+layout_mode = 2
+texture = ExtResource("2_1ehe0")
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1733940706]
+layout_mode = 2
+text = "LUDIFICO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1834114709]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1215017706]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Options"
+
+[node name="Statistics" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1822324580]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Statistics"
+
+[node name="Credits" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1656692879]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Credits"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1155056680]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Exit"
