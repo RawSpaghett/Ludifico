@@ -47,6 +47,9 @@ layout_mode = 2
 [node name="KeyBase9" parent="Top" unique_id=1357806268 instance=ExtResource("1_bu62x")]
 layout_mode = 2
 
+[node name="KeyBase10" parent="Top" unique_id=1796422865 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
 [node name="Middle" type="HBoxContainer" parent="." unique_id=227732869]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -81,6 +84,9 @@ layout_mode = 2
 [node name="KeyBaseM8" parent="Middle" unique_id=1966632796 instance=ExtResource("1_bu62x")]
 layout_mode = 2
 
+[node name="KeyBaseM9" parent="Middle" unique_id=1879932090 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
 [node name="Bottom" type="HBoxContainer" parent="." unique_id=1506836017]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -107,4 +113,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="KeyBaseB6" parent="Bottom" unique_id=49849446 instance=ExtResource("1_bu62x")]
+layout_mode = 2
+
+[node name="KeyBaseB7" parent="Bottom" unique_id=1225220988 instance=ExtResource("1_bu62x")]
 layout_mode = 2

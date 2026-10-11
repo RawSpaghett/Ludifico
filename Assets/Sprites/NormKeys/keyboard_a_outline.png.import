@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddfom50321q78"
-path="res://.godot/imported/Troll.png-af9f5020a90865cc54d749cfc09197f1.ctex"
+uid="uid://c6xcjtskquvrw"
+path="res://.godot/imported/keyboard_a_outline.png-fe9cd4fd2ea3a23ac4324d24348a85bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Troll.png"
-dest_files=["res://.godot/imported/Troll.png-af9f5020a90865cc54d749cfc09197f1.ctex"]
+source_file="res://Assets/Sprites/NormKeys/keyboard_a_outline.png"
+dest_files=["res://.godot/imported/keyboard_a_outline.png-fe9cd4fd2ea3a23ac4324d24348a85bd.ctex"]
 
 [params]
 

@@ -51,7 +51,7 @@ public partial class PlayerKeyboard: Resource
 		Slots.Clear();
 		foreach (char letter in alphabet)
 		{
-			Slots.Add(new KeySlot(new BaseSwitch(),new BaseCap(),letter));
+			Slots.Add(new KeySlot(new BaseSwitch(),new BaseCap(letter.ToString().ToLower()),letter));
 		}
 		
 	}

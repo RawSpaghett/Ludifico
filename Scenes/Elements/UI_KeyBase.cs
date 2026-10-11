@@ -13,20 +13,16 @@ public partial class UI_KeyBase : TextureButton
 		EventBus.OnPlayerLetter -= PressKey;
 	}
 
-	private void PressKey(char key)
+	private async void PressKey(char key)
 	{
-		foreach (Node row in GetChildren())
+		if (key.ToString().ToLower() == this.Name)
 		{
-			if (row is HBoxContainer hbox)
-			{
-				foreach (Node child in hbox.GetChildren())
-				{
-					if (child is UI_KeyBase keyNode && child.Name == key.ToString())
-					{
-						
-					}
-				}
-			}
+			this.EmitSignal(SignalName.Pressed);
+			this.ButtonPressed = true;  //go down
+			
+			await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout); //wait
+			
+			this.ButtonPressed = false;  //popup
 		}
 	}
 	
@@ -37,6 +33,6 @@ public partial class UI_KeyBase : TextureButton
 		//base texture
 		this.TextureNormal = GD.Load<Texture2D>(slotData.CapSlot.NormIcon);
 		//pressed texture
-		//this.TexturePress = GD.Load<Texture2D>(slotData.CapSlot.PressIcon);
+		this.TexturePressed = GD.Load<Texture2D>(slotData.CapSlot.PressIcon);
 	}
 }
