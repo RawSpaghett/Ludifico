@@ -1,10 +1,32 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class PlayerKeyboard: Resource
 {
+	private static PlayerKeyboard instance;
+	private const string SavePath = "user://player_keyboard.tres";
 	
-	public static PlayerKeyboard Instance { get; } = new PlayerKeyboard();
+	public static PlayerKeyboard Instance 
+	{ 
+		get 
+		{
+			if (instance == null)
+			{
+				if (ResourceLoader.Exists(SavePath))
+				{
+					instance = ResourceLoader.Load<PlayerKeyboard>(SavePath);
+				}
+				else
+				{
+					
+					instance = new PlayerKeyboard();
+					instance.IntiateFreshKeyboard();
+				}
+			}
+			return instance;
+		} 
+	}
 	
 	private int artisanSize = 4;
 

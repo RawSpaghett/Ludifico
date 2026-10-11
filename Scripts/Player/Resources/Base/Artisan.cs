@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public abstract partial class Artisan: Resource
 {
 	[Export] public virtual string ItemName { get; set; } = "";

@@ -13,6 +13,7 @@ offset_right = -16.464005
 offset_bottom = -19.936005
 grow_horizontal = 2
 grow_vertical = 2
+toggle_mode = true
 texture_normal = ExtResource("1_t883x")
 texture_pressed = ExtResource("2_3iern")
 ignore_texture_size = true

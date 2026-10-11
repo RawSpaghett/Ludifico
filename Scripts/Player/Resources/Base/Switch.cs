@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public abstract partial class Switch: Resource
 {
 	[Export] public virtual string ItemName { get; set; } = "";

@@ -19,7 +19,7 @@ public partial class MainMenuManager : Node
 	} 
 		public void OnStartButton()
 		{
-			GetTree().ChangeSceneToFile("res://Scenes/wpm_test.tscn");
+			GetTree().ChangeSceneToFile("res://Scenes/keyboard_layout.tscn");
 			GD.Print("Start");
 		}
 		public void OnOptionsButton()

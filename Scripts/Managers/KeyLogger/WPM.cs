@@ -45,7 +45,7 @@ public partial class WPM : Node
 		float timeInMinutes = timeInSeconds / 60f;
 		float elapsed = timeInMinutes - startTimeMinutes;
 		startTimeMinutes = timeInMinutes;
-		RawWPM(word.Length,timeInMinutes);
+		RawWPM(word.Length,elapsed);
 	}
 	
 	private void RawWPM(int chars, float elapsedMin) //(Total chars / Five)/(time in mins)
