@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bo8xom7jipv7f"]
 
-[ext_resource type="Script" uid="uid://ep1du22vbmv1" path="res://Scripts/Managers/KeyLogger/WPM.cs" id="1_axxm8"]
-[ext_resource type="Script" uid="uid://dgy75n1aca1up" path="res://Scripts/LabelAttached/TargetLabel.cs" id="2_2n13y"]
-[ext_resource type="Script" uid="uid://bf7cxlm0iv51u" path="res://Scripts/LabelAttached/InputLabel.cs" id="3_pfddk"]
-[ext_resource type="PackedScene" uid="uid://bo6bjwvk1mw56" path="res://Scenes/Keyboard/keyboard_layout.tscn" id="4_hri2t"]
+[ext_resource type="Script" uid="uid://bu745badd5vqi" path="res://Scripts/Managers/KeyLogger/KeyLogger.cs" id="1_47y01"]
+[ext_resource type="Script" uid="uid://ep1du22vbmv1" path="res://Scripts/Managers/KeyLogger/WPM.cs" id="2_qkwb5"]
+[ext_resource type="Script" uid="uid://dgy75n1aca1up" path="res://Scripts/LabelAttached/TargetLabel.cs" id="3_ra6j6"]
+[ext_resource type="Script" uid="uid://bf7cxlm0iv51u" path="res://Scripts/LabelAttached/InputLabel.cs" id="4_11vxy"]
+[ext_resource type="PackedScene" uid="uid://bo6bjwvk1mw56" path="res://Scenes/Keyboard/keyboard_layout.tscn" id="5_bqt7u"]
 
 [node name="Control" type="Control" unique_id=669456351]
 layout_mode = 3
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_47y01")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529290960]
 layout_mode = 1
@@ -48,7 +50,7 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
-script = ExtResource("1_axxm8")
+script = ExtResource("2_qkwb5")
 
 [node name="Target Score Title" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer" unique_id=674184617]
 layout_mode = 2
@@ -74,7 +76,7 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 23
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("2_2n13y")
+script = ExtResource("3_ra6j6")
 
 [node name="InputLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=524187345]
 layout_mode = 2
@@ -82,7 +84,7 @@ size_flags_vertical = 6
 theme_override_font_sizes/font_size = 23
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("3_pfddk")
+script = ExtResource("4_11vxy")
 
-[node name="KeyboardLayout" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=622241588 instance=ExtResource("4_hri2t")]
+[node name="KeyboardLayout" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=622241588 instance=ExtResource("5_bqt7u")]
 layout_mode = 2

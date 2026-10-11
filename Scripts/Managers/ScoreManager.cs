@@ -3,23 +3,21 @@ using System;
 
 public partial class ScoreManager : Node
 {
-	
-	
 	//Boss -> Cap -> Switch -> Artisan -> ScoreXMulti
 	public float total { get; private set; }
 
 	public override void _EnterTree()
 	{
-		//on word completed
+		EventBus.OnWordFinished += CrunchScore;
 		base._EnterTree();
 	}
 
 	public override void _ExitTree()
 	{
-		base._ExitTree();
+		EventBus.OnWordFinished += CrunchScore;
 	}
 
-	private void CrunchScore(string word) //Boss -> Cap -> Switch -> Artisan -> ScoreXMulti
+	private void CrunchScore(ulong tempfix, string word) //Boss -> Cap -> Switch -> Artisan -> ScoreXMulti
 	{
 		char[] letters = word.ToCharArray();
 		float totalScore = 0;
@@ -44,6 +42,7 @@ public partial class ScoreManager : Node
 		output = totalScore * totalMulti;
 
 		total += output;
+		GD.Print(total);
 	}
 
 

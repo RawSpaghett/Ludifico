@@ -19,6 +19,8 @@ config/icon="res://Assets/Sprites/icon.svg"
 [autoload]
 
 InputManager="*uid://bgp48xi6h7mwi"
+GameStateManager="*uid://b1ovt62d5lg1i"
+ScoreManager="*uid://ddndjpx6yslqt"
 
 [display]
 

@@ -19,7 +19,7 @@ public partial class MainMenuManager : Node
 	} 
 		public void OnStartButton()
 		{
-			GetTree().ChangeSceneToFile("res://Scenes/Rounds/Levels/LevelBase.tscn");
+			GetTree().ChangeSceneToFile("res://Scenes/GameScenes/Rounds/LevelBase.tscn");
 			GD.Print("Start");
 		}
 		public void OnOptionsButton()

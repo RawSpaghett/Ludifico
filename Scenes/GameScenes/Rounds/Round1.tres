@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="RoundData" format=3 uid="uid://bswdjs4sbtarj"]
+
+[ext_resource type="Script" uid="uid://dae4bbx2lpdvo" path="res://Scenes/GameScenes/Rounds/RoundData.cs" id="1_jsxle"]
+
+[resource]
+script = ExtResource("1_jsxle")
+metadata/_custom_type_script = "uid://dae4bbx2lpdvo"
