@@ -1,30 +1,41 @@
 using Godot;
 using System;
 
-public partial class WPM : Node
+public partial class WPM : Label
 {
 	public float rawWPM { get; private set; }
+	public float netWPM { get; private set; }
+	private int mistakes = 0;
 
 	private float startTimeMinutes;
-
-	
 	
 	//Needs number of characters and elapsed time
-	
 	public override void _EnterTree()
 	{
 		EventBus.OnWordFinished += ProcessBroadcast;
-		//EventBus.OnPlayerStart += StartTime;
+		EventBus.OnPlayerStart += StartTime;
+		EventBus.OnPlayerMiss += HandleMiss;
 		base._EnterTree();
 	}
 
 	public override void _ExitTree()
 	{
 		EventBus.OnWordFinished -= ProcessBroadcast;
-		//EventBus.OnPlayerStart -= StartTime;
+		EventBus.OnPlayerStart -= StartTime;
+		EventBus.OnPlayerMiss += HandleMiss;
 		base._ExitTree();
 	}
 
+	private void HandleMiss()
+	{
+		mistakes++;
+	}
+
+	private void UpdateNumber()
+	{
+		this.Text.Remove(0);
+		this.Text += netWPM;
+	}
 	/*
 	public override void _Process(double delta)
 	{
@@ -54,7 +65,10 @@ public partial class WPM : Node
 		EventBus.BroadcastWPMChange(rawWPM);
 	}
 	
-	
+	private void NetWPM(int chars, float elapsedMin) // [(chars - mistakes) / 5] / (time in mins) 
+	{
+		netWPM = ( (chars - mistakes) / 5f ) / elapsedMin; 
+	}
 	
 	
 }

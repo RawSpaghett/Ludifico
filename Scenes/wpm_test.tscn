@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dgy75n1aca1up" path="res://Scripts/LabelAttached/TargetLabel.cs" id="1_lfx5v"]
 [ext_resource type="Script" uid="uid://bu745badd5vqi" path="res://Scripts/Managers/KeyLogger/KeyLogger.cs" id="1_rsu6n"]
 [ext_resource type="Script" uid="uid://bf7cxlm0iv51u" path="res://Scripts/LabelAttached/InputLabel.cs" id="2_5tedp"]
+[ext_resource type="Script" uid="uid://ep1du22vbmv1" path="res://Scripts/Managers/KeyLogger/WPM.cs" id="2_liokb"]
 
 [node name="WPMTest" type="Control" unique_id=2015650234]
 layout_mode = 3
@@ -12,6 +13,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rsu6n")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1957331583]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -95.5
+offset_right = 95.5
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="SceneTitle" type="Label" parent="VBoxContainer2" unique_id=687620366]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Type as fast as you can!!!"
+
+[node name="WPMTitle" type="Label" parent="VBoxContainer2" unique_id=2047521015]
+layout_mode = 2
+text = "WPM:"
+horizontal_alignment = 1
+
+[node name="WPMNumber" type="Label" parent="VBoxContainer2" unique_id=1272442236]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("2_liokb")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=667343751]
 propagate_maximum_size = false
