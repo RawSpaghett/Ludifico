@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bu745badd5vqi" path="res://Scripts/Managers/KeyLogger/KeyLogger.cs" id="1_rsu6n"]
 [ext_resource type="Script" uid="uid://bf7cxlm0iv51u" path="res://Scripts/LabelAttached/InputLabel.cs" id="2_5tedp"]
 [ext_resource type="Script" uid="uid://ep1du22vbmv1" path="res://Scripts/Managers/KeyLogger/WPM.cs" id="2_liokb"]
+[ext_resource type="PackedScene" uid="uid://bo6bjwvk1mw56" path="res://Scenes/keyboard_layout.tscn" id="5_2st8x"]
 
 [node name="WPMTest" type="Control" unique_id=2015650234]
 layout_mode = 3
@@ -70,5 +71,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_5tedp")
 
-[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer" unique_id=356511498]
+[node name="KeyboardLayout" parent="CenterContainer/VBoxContainer" unique_id=622241588 instance=ExtResource("5_2st8x")]
 layout_mode = 2

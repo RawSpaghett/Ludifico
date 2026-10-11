@@ -19,7 +19,6 @@ config/icon="res://Assets/Sprites/icon.svg"
 [autoload]
 
 InputManager="*uid://bgp48xi6h7mwi"
-PlayerKeyboard="*uid://bempwlm3c3fx6"
 
 [display]
 

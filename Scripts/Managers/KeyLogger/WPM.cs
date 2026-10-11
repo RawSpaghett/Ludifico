@@ -33,8 +33,8 @@ public partial class WPM : Label
 
 	private void UpdateNumber()
 	{
-		this.Text.Remove(0);
-		this.Text += netWPM;
+		this.Text = this.Text.Remove(0);
+		this.Text += ((int)rawWPM).ToString();
 	}
 	/*
 	public override void _Process(double delta)
@@ -57,6 +57,7 @@ public partial class WPM : Label
 		float elapsed = timeInMinutes - startTimeMinutes;
 		startTimeMinutes = timeInMinutes;
 		RawWPM(word.Length,elapsed);
+		UpdateNumber();
 	}
 	
 	private void RawWPM(int chars, float elapsedMin) //(Total chars / Five)/(time in mins)
@@ -69,6 +70,5 @@ public partial class WPM : Label
 	{
 		netWPM = ( (chars - mistakes) / 5f ) / elapsedMin; 
 	}
-	
 	
 }
