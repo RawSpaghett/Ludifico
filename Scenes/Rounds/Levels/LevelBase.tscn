@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bo8xom7jipv7f"]
+
+[ext_resource type="Script" uid="uid://ep1du22vbmv1" path="res://Scripts/Managers/KeyLogger/WPM.cs" id="1_axxm8"]
+[ext_resource type="Script" uid="uid://dgy75n1aca1up" path="res://Scripts/LabelAttached/TargetLabel.cs" id="2_2n13y"]
+[ext_resource type="Script" uid="uid://bf7cxlm0iv51u" path="res://Scripts/LabelAttached/InputLabel.cs" id="3_pfddk"]
+[ext_resource type="PackedScene" uid="uid://bo6bjwvk1mw56" path="res://Scenes/Keyboard/keyboard_layout.tscn" id="4_hri2t"]
+
+[node name="Control" type="Control" unique_id=669456351]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529290960]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer" unique_id=244623269]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SceneTitle" type="Label" parent="MarginContainer/VBoxContainer2" unique_id=118320744]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Round Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2" unique_id=1079237308]
+layout_mode = 2
+
+[node name="WPMTitle" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer" unique_id=810047319]
+layout_mode = 2
+text = "WPM:"
+horizontal_alignment = 1
+
+[node name="WPMNumber" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer" unique_id=777707509]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("1_axxm8")
+
+[node name="Target Score Title" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer" unique_id=674184617]
+layout_mode = 2
+text = "Target Score:"
+
+[node name="TargetNumber" type="Label" parent="MarginContainer/VBoxContainer2/HBoxContainer" unique_id=1469967894]
+layout_mode = 2
+text = "TDB"
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=494585732]
+propagate_maximum_size = false
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer" unique_id=434626716]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="TargetLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=2085399954]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_2n13y")
+
+[node name="InputLabel" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=524187345]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_pfddk")
+
+[node name="KeyboardLayout" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=622241588 instance=ExtResource("4_hri2t")]
+layout_mode = 2

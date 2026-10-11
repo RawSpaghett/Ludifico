@@ -19,7 +19,7 @@ public partial class MainMenuManager : Node
 	} 
 		public void OnStartButton()
 		{
-			GetTree().ChangeSceneToFile("res://Scenes/wpm_test.tscn");
+			GetTree().ChangeSceneToFile("res://Scenes/Rounds/Levels/LevelBase.tscn");
 			GD.Print("Start");
 		}
 		public void OnOptionsButton()
