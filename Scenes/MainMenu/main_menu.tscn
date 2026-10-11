@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://crvn7c0ntg7fe"]
+[gd_scene format=3 uid="uid://6dwbc7si55u1"]
 
 [ext_resource type="Script" uid="uid://vgnlmafypy7l" path="res://Scenes/MainMenu/MainMenuManager.cs" id="1_48xlc"]
-[ext_resource type="Texture2D" uid="uid://cd2b7ywk7sod3" path="res://icon.svg" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://cd2b7ywk7sod3" path="res://Assets/Sprites/icon.svg" id="2_1ehe0"]
 
 [node name="MainMenu" type="MarginContainer" unique_id=1121741359]
 anchors_preset = 15

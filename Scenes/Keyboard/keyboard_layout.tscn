@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bo6bjwvk1mw56"]
 
-[ext_resource type="PackedScene" uid="uid://05ne35ijw1ku" path="res://Scenes/key_base.tscn" id="1_bu62x"]
+[ext_resource type="PackedScene" uid="uid://05ne35ijw1ku" path="res://Scenes/Keyboard/key_base.tscn" id="1_bu62x"]
 [ext_resource type="Script" uid="uid://cxiqwviuwhoox" path="res://Scenes/Keyboard/UI_Keyboard.cs" id="1_xtrfm"]
 
 [node name="KeyboardLayout" type="VBoxContainer" unique_id=622241588]
