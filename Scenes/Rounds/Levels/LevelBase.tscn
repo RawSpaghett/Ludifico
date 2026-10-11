@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bo8xom7jipv7f"]
 
+[ext_resource type="Script" uid="uid://bu745badd5vqi" path="res://Scripts/Managers/KeyLogger/KeyLogger.cs" id="1_2n13y"]
 [ext_resource type="Script" uid="uid://ep1du22vbmv1" path="res://Scripts/Managers/KeyLogger/WPM.cs" id="1_axxm8"]
 [ext_resource type="Script" uid="uid://dgy75n1aca1up" path="res://Scripts/LabelAttached/TargetLabel.cs" id="2_2n13y"]
 [ext_resource type="Script" uid="uid://bf7cxlm0iv51u" path="res://Scripts/LabelAttached/InputLabel.cs" id="3_pfddk"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2n13y")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529290960]
 layout_mode = 1
